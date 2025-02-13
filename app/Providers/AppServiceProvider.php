@@ -7,13 +7,17 @@ use Illuminate\Support\ServiceProvider;
 class AppServiceProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
+     * Register any application services.x
      */
-    public function register(): void
+    public function register()
     {
-        //
+        $this->app->bind(
+            \App\Repositories\Contracts\RoleRepositoryInterface::class,
+            \App\Repositories\RoleRepository::class,
+            \App\Repositories\Contracts\RoleRepositoryInterface::class,
+            \App\Repositories\RoleRepository::class
+        );
     }
-
     /**
      * Bootstrap any application services.
      */
